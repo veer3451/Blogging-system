@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for blog in blogs %}
+<div class="card">
+    <h2>{{ blog[1] }}</h2>
+    <p>{{ blog[2][:150] }}...</p>
+<a class="btn btn-read" href="/blog/{{ blog[0] }}">Read</a>
+<a class="btn btn-edit" href="/edit/{{ blog[0] }}">Edit</a>
+<a class="btn btn-delete" href="/delete/{{ blog[0] }}">Delete</a>
+
+</div>
+{% endfor %}
+{% endblock %}

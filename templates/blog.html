@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <h2>{{ blog[1] }}</h2>
+    <p>{{ blog[2] }}</p>
+
+    <!-- Like Section -->
+    <div class="like">
+        ❤️ <strong>{{ blog[3] }}</strong> Likes |
+        <a href="/like/{{ blog[0] }}">Like this post</a>
+    </div>
+</div>
+
+<!-- Comments Section -->
+<div class="card">
+    <h3>💬 Comments</h3>
+
+    {% if comments %}
+        {% for c in comments %}
+            <div class="comment">
+                {{ c[2] }}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No comments yet. Be the first one!</p>
+    {% endif %}
+
+    <!-- Add Comment -->
+    <form method="post" action="/comment/{{ blog[0] }}">
+        <input type="text" name="comment" placeholder="Write a comment..." required>
+        <button type="submit">Post Comment</button>
+    </form>
+</div>
+
+{% endblock %}

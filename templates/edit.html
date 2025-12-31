@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+    <input type="text" name="title" value="{{ blog[1] }}">
+    <textarea name="content">{{ blog[2] }}</textarea>
+    <button>Update</button>
+</form>
+{% endblock %}
